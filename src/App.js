@@ -1,6 +1,24 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+
+axios.defaults.headers.common['Authorization'] = 'Basic YTFAZ21haWwuY29tOnAx';
+
+global.fetchProducts = function() {
+
+	// Make a request for a user with a given ID
+	axios.get('http://127.0.0.1:8080/product')
+	  .then(function (response) {
+	    console.log(response);
+	  })
+	  .catch(function (error) {
+	    console.err(error);
+	  })
+	  .finally(function () {
+		 console.log('done');
+	  });
+}
 
 function App() {
   return (
